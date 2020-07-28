@@ -1,17 +1,18 @@
 "use strict";
 
 import React from "react";
-import { render } from "react-dom";
-import { Provider } from "react-redux";
+import {render} from "react-dom";
+import {Provider} from "react-redux";
+import {Router, Route, IndexRoute, browserHistory} from "react-router";
 
-import { applyMiddleware, createStore } from "redux";
+import {applyMiddleware, createStore} from "redux";
 import logger from "redux-logger";
 
 import reducers from "./reducers/index";
-import { addToCart } from "./actions/cartActions";
-import { postBooks, deleteBooks, updateBooks } from "./actions/booksActions";
+// import { addToCart } from "./actions/cartActions";
+// import { postBooks, deleteBooks, updateBooks } from "./actions/booksActions";
 
-// STEP 1 create the store
+// create the store
 const middleware = applyMiddleware(logger);
 const store = createStore(reducers, middleware);
 
@@ -20,24 +21,37 @@ const store = createStore(reducers, middleware);
 //     console.log('current state is ', store.getState())
 // })
 
-// STEP 2 create and dispatch actions
+// create and dispatch actions
 // store.dispatch({ type: 'INCREMENT', payload: 1 })
 // store.dispatch({ type: 'DECREMENT', payload: 9 })
 // store.dispatch({ type: 'INCREMENT', payload: 2 })
 // store.dispatch({ type: 'INCREMENT', payload: 3 })
 
+import Main from "./main";
 import BookList from "./components/pages/booklist";
+import Cart from "./components/pages/cart";
+import BooksForm from "./components/pages/booksForm";
 
-render(
-  <Provider store={store}>
-    <BookList />
-  </Provider>,
-  document.getElementById("app")
+const Routes = (
+    <Provider store={store}>
+        <Router history={browserHistory}>
+            <Route path="/"
+                component={Main}>
+                <IndexRoute component={BookList}/>
+                <Route path="/admin"
+                    component={BooksForm}/>
+                <Route path="/cart"
+                    component={Cart}/>
+            </Route>
+        </Router>
+    </Provider>
 );
+
+render(Routes, document.getElementById("app"));
 
 // // DISPATCH an other book
 // store.dispatch(
-//   postBooks([
+// postBooks([
 //     {
 //       id: 1,
 //       title: "Parry Hotter",
@@ -56,17 +70,17 @@ render(
 //       description: "Greatet book of them all Two",
 //       price: 50.55,
 //     },
-//   ])
+// ])
 // );
 
 // store.dispatch(deleteBooks({ id: 2 }));
 
 // // DISPATCH an other book
 // store.dispatch(
-//   updateBooks({
+// updateBooks({
 //     id: 4,
 //     title: "Marry Hotter",
-//   })
+// })
 // );
 
 // // ADD to cart
