@@ -3,12 +3,9 @@ const path = require('path');
 var http = require('http');
 const app = express();
 
-
-app.set('port', 3000);
-
 var server = http.createServer(app);
 
-server.listen(3000);
+server.listen(9000);
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -16,9 +13,9 @@ server.on('listening', onListening);
 // Define Static Files Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
-});
+// app.get('/', function (req, res) {
+//     res.sendFile(path.join(__dirname, 'public', 'index.html'))
+// });
 
 
 /**
