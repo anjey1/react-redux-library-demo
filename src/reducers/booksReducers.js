@@ -40,7 +40,6 @@ export function booksReducers(state = {
                 _id: state._id
             };
         case "DELETE_BOOK":
-            debugger;
             const bookToDelete = [...state.books].findIndex((book) => {
                 return book._id.toString() === action.payload;
             });

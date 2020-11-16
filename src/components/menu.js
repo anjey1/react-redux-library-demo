@@ -11,19 +11,6 @@ class Menu extends React.Component {
                     </Navbar.Brand>
                     <Navbar.Toggle/>
                 </Navbar.Header>
-                <Navbar.Collapse>
-                    <Nav pullRight>
-                        <NavItem eventKey={1}
-                            href="/admin">
-                            Admin
-                        </NavItem>
-                        <NavItem eventKey={2}
-                            href="/cart">
-                            YourCart
-                            <Badge className="badge">1</Badge>
-                        </NavItem>
-                    </Nav>
-                </Navbar.Collapse>
             </Navbar>
         );
     }

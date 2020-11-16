@@ -11,7 +11,6 @@ export function cartReducers(state = {
                 totalQty: totals(action.payload).qty
             };
         case "GET_CART":
-            debugger
             return {
                 ...state,
                 cart: [...state.cart]
@@ -53,7 +52,6 @@ export function cartReducers(state = {
 
             // return { ...state, cart: state.cart };
         case "DELETE_CART_ITEM":
-            debugger;
             return {
                 ...state,
                 cart: action.payload,

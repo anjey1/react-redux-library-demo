@@ -29,14 +29,14 @@ class Booklist extends React.Component {
     return (
       <Grid>
         <Row>
-          <Cart />
-        </Row>
-        <Row>
           <Col xs={12} sm={6}>
             <BooksForm />
           </Col>
           {bookList}
         </Row>
+          <Row>
+              <Cart />
+          </Row>
       </Grid>
     );
   }

@@ -19,7 +19,6 @@ class BooksForm extends React.Component {
     }
 
     handleSubmit() {
-        debugger;
         if (this.refs.price) {
             const book = [{
                     _id: this.props._id + 1,
@@ -32,14 +31,12 @@ class BooksForm extends React.Component {
     }
 
     onDelete() {
-        debugger;
         const bookId = findDOMNode(this.refs.delete).value;
         this.props.deleteBooks(bookId);
     }
 
     render() {
         const booksList = this.props.books.map(function (booksArr) {
-            console.log(booksArr);
             return (
                 <option key={
                         booksArr._id

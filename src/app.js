@@ -38,10 +38,6 @@ const Routes = (
             <Route path="/"
                 component={Main}>
                 <IndexRoute component={BookList}/>
-                <Route path="/admin"
-                    component={BooksForm}/>
-                <Route path="/cart"
-                    component={Cart}/>
             </Route>
         </Router>
     </Provider>
