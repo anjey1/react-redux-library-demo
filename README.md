@@ -1,2 +1,8 @@
-Start App @run node server.js
-Dist @run webpack
+##Run
+
+`npm run start`
+
+
+##DEMO
+
+https://react-router-224433.herokuapp.com/
