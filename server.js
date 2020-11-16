@@ -5,7 +5,8 @@ const app = express();
 
 var server = http.createServer(app);
 
-server.listen(9000);
+var port = 3000;
+server.listen(3000);
 server.on('error', onError);
 server.on('listening', onListening);
 
