@@ -1,23 +1,28 @@
 {
     "name": "react-redux-node",
     "version": "1.0.0",
+    "engines": {
+        "npm": "6.13.4",
+        "node": "12.14.0"
+    },
     "description": "",
-    "main": "index.js",
+    "main": "server.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js",
-        "build": "webpack"
+        "start": "concurrently \"npm run server\" \"npm run client\"",
+        "server": "node server.js",
+        "client": "webpack"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
         "redux-logger": "^3.0.6",
-        "webpack-cli": "^3.3.12"
+        "webpack-cli": "^3.3.12",
+        "concurrently": "3.1.0"
     },
     "dependencies": {
-        "babel-core": "^6.26.0",
         "babel-loader": "^7.1.4",
+        "babel-core": "^6.26.0",
         "babel-preset-env": "^1.6.1",
         "babel-preset-react": "^6.24.1",
         "babel-preset-stage-1": "^6.24.1",
@@ -27,7 +32,6 @@
         "react-dom": "^15.4.2",
         "react-redux": "^5.0.3",
         "react-router": "^3.0.2",
-        "history": "^4.5.1",
         "redux": "^3.0.2",
         "webpack": "^4.0.0"
     }
